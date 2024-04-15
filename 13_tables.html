@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tables - jadvallar bilan ishlash</title>
+
+
+    <style>
+        table {
+            /* kataklarni yopishtirish */
+            border-collapse: collapse;
+
+            /* eni butun oynani egallashi uchun*/
+            width: 100%;
+        }
+
+        thead {
+            text-align: left;
+        }
+
+        th,
+        td {
+            /* Jadvalga ramka joylash */
+            border: 1px
+                /*  solid - rangi */
+                solid green;
+
+            /* har tomondan 5px joy qoldirish */
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Tables - jadvallar bilan ishlashni o'rganamiz.</h1>
+
+    <!-- table ni boshi va oxiri:-->
+    <table>
+        <!-- thead - table head - jadval boshi -->
+        <!-- thead da by default , odatda matn markazda joylashadi-->
+        <thead>
+            <!-- tr - table row - jadval qatori (gorizontaliga)-->
+            <tr>
+                <!-- th - table head data - jadval boshi ma'lumoti-->
+                <th>№</th>
+                <th>Familyasi</th>
+                <th>Ismi</th>
+                <th>Yoshi</th>
+                <th>Qiziqishi</th>
+            </tr>
+        </thead>
+
+        <!--    tbody - jadval tanasi, 2-va keyingi qatorlar-->
+        <tbody>
+            <tr>
+                <!-- td - table data - jadval ma'lumoti-->
+                <td>1</td>
+                <td>Abdullayev</td>
+                <td>Sardor</td>
+                <td>25</t>
+                <td>IT</td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+
+</html>
