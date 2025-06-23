@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formalar - I</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Kirish</h2>
+    <form action="php/kirish.php" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="username">Foydalanuvchi ismi: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="username" name="username">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Parol: </label>
+                    </td>
+                    <td>
+                        <input type="password" id="password" name="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Kirish">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <br>
+    <hr><br>
+
+
+    <h2 for="ism">Ro'yhatdan o'tish</h2>
+    <form action="php/register.php" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="ism">Ism: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="ism" name="ism">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sharif">
+                            Sharif:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="sharif" name="sharif">
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <label for="familya">
+                            Familya:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="familya" name="familya">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="password">Parol:</label>
+                    </td>
+                    <td>
+                        <input type="password" id="password" name="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Ro'yhatdan o'tish">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</body>
+
+</html>

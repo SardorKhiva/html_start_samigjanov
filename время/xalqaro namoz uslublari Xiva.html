@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Islamic Prayer Times - Khiva</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/adhan@latest/dist/adhan.min.js"></script>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #clock {
+            font-size: 60px;
+            margin: 20px;
+        }
+        
+        .prayer-times {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #4CAF50;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        .prayer-time {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        select {
+            padding: 5px;
+            margin: 10px;
+            background: #333;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    
+    <select id="methodSelect" onchange="updatePrayerTimes()">
+        <option value="MWL">Muslim World League</option>
+        <option value="ISNA">Islamic Society of North America</option>
+        <option value="Egypt">Egyptian General Authority</option>
+        <option value="Karachi">University of Islamic Sciences, Karachi</option>
+        <option value="Tehran">Institute of Geophysics, Tehran</option>
+        <option value="Jafari">Shia Ithna Ashari (Jafari)</option>
+    </select>
+
+    <select id="madhabSelect" onchange="updatePrayerTimes()">
+        <option value="Shafi">Шафии</option>
+        <option value="Hanafi">Ханафи</option>
+    </select>
+
+    <div class="prayer-times" id="prayerTimes"></div>
+
+    <script>
+        const KHIVA_COORDINATES = new Adhan.Coordinates(41.3775, 60.3639);
+
+        function getCalculationMethod() {
+            const methodName = document.getElementById('methodSelect').value;
+            switch(methodName) {
+                case 'MWL': return Adhan.CalculationMethod.MuslimWorldLeague();
+                case 'ISNA': return Adhan.CalculationMethod.NorthAmerica();
+                case 'Egypt': return Adhan.CalculationMethod.Egypt();
+                case 'Karachi': return Adhan.CalculationMethod.Karachi();
+                case 'Tehran': return Adhan.CalculationMethod.Tehran();
+                case 'Jafari': return Adhan.CalculationMethod.Jafari();
+                default: return Adhan.CalculationMethod.MuslimWorldLeague();
+            }
+        }
+
+        function getMadhab() {
+            return document.getElementById('madhabSelect').value === 'Hanafi' 
+                ? Adhan.Madhab.Hanafi 
+                : Adhan.Madhab.Shafi;
+        }
+
+        function updateClock() {
+            document.getElementById('clock').textContent = 
+                new Date().toLocaleTimeString('en-US', {
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+        }
+
+        function updatePrayerTimes() {
+            const date = new Date();
+            const params = getCalculationMethod();
+            params.madhab = getMadhab();
+            
+            const prayerTimes = new Adhan.PrayerTimes(KHIVA_COORDINATES, date, params);
+            
+            const prayers = {
+                'Фаджр': prayerTimes.fajr,
+                'Восход': prayerTimes.sunrise,
+                'Зухр': prayerTimes.dhuhr,
+                'Аср': prayerTimes.asr,
+                'Магриб': prayerTimes.maghrib,
+                'Иша': prayerTimes.isha
+            };
+
+            const prayerTimesDiv = document.getElementById('prayerTimes');
+            prayerTimesDiv.innerHTML = '';
+
+            for (let prayer in prayers) {
+                const time = prayers[prayer].toLocaleTimeString('en-US', {
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                const div = document.createElement('div');
+                div.className = 'prayer-time';
+                div.innerHTML = `<span>${prayer}</span><span>${time}</span>`;
+                prayerTimesDiv.appendChild(div);
+            }
+        }
+
+        // Обновление каждую секунду
+        setInterval(updateClock, 1000);
+        setInterval(updatePrayerTimes, 60000);
+
+        // Инициализация
+        updateClock();
+        updatePrayerTimes();
+    </script>
+</body>
+</html>

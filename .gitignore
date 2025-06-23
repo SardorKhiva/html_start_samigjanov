@@ -1,0 +1,16 @@
+./portfolio/
+portfolio\profile_photo.jpg
+# Ignore the portfolio directory
+*.log
+# Ignore log files
+*.tmp
+# Ignore temporary files
+*.bak
+# Ignore backup files
+*.swp
+# Ignore swap files
+*.DS_Store
+# Ignore macOS system files
+*.env
+# Ignore environment variable files
+node_modules/   

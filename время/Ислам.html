@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Islamic Calendar & Time</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        
+        #clock {
+            font-size: 80px;
+            margin: 20px;
+        }
+        
+        #date {
+            font-size: 40px;
+            margin: 20px;
+        }
+        
+        #hijri {
+            font-size: 40px;
+            color: #4CAF50;
+            margin: 20px;
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/adhan@latest/dist/adhan.min.js"></script>
+</head>
+<body>
+    <div id="clock"></div>
+    <div id="date"></div>
+    <div id="hijri"></div>
+
+    <script>
+
+function getPrayerTimes() {
+    const coordinates = new Adhan.Coordinates(41.2995, 69.2401); // Ташкент
+    const params = Adhan.CalculationMethod.MuslimWorldLeague();
+    const prayerTimes = new Adhan.PrayerTimes(coordinates, new Date(), params);
+    
+    return {
+        fajr: prayerTimes.fajr.toLocaleTimeString(),
+        sunrise: prayerTimes.sunrise.toLocaleTimeString(),
+        dhuhr: prayerTimes.dhuhr.toLocaleTimeString(),
+        asr: prayerTimes.asr.toLocaleTimeString(),
+        maghrib: prayerTimes.maghrib.toLocaleTimeString(),
+        isha: prayerTimes.isha.toLocaleTimeString()
+    };
+}
+
+        function updateClock() {
+            const now = new Date();
+            
+            // Обычное время
+            document.getElementById('clock').textContent = 
+                now.toLocaleTimeString('en-US', {
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+            
+            // Григорианская дата
+            document.getElementById('date').textContent = 
+                now.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            
+            // Исламская дата
+            const islamicDate = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                weekday: 'long'
+            }).format(now);
+            
+            document.getElementById('hijri').textContent = islamicDate;
+        }
+        
+        // Обновление каждую секунду
+        setInterval(updateClock, 1000);
+        updateClock();
+        getPrayerTimes();
+    </script>
+</body>
+</html>

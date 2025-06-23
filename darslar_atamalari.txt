@@ -1,0 +1,151 @@
+1-dars:
+1. Browser - web sahifalarni ochish va Internetdan foydalanish uchun mo'ljallangan maxsus dastur.
+2. Domain - saytning nomi.
+3. Request - web sahifani yuklash uchun brauzer tomonidan yaratiladigan maxsus so'rov.
+4. Server - tarmoqqa ulangan va doimiy ravishda ishlab turadigan kompyuter(lar). U foydalanuvchidan kelayotgan so'rovlarni qabul qilib, qayta ishlab, tegishli javob jo'natadi.
+5. Response - server tomonidan qabul qilinib olingan so'rov uchun yaratilgan javob.
+6. Developer tools - dasturchilar uchun mo'ljallangan maxsus uskunalar (instrument). 
+
+2-dars:
+1. Tag (<tag_nomi> </tag_nomi>) - web sahifada maxsus elementlar yaratish uchun foydalaniladi.
+2. Heading (<h1> </h1>) - web sahifada katta ko'rinishdagi matnlar chiqarish uchun mo'ljallangan maxsus "tag".
+3. Paragraph (<p> </p>) - web sahifada sarlavha yaratish uchun ishlatiladigan maxsus "tag".
+
+3-dars:
+1. Development environment - dastur yozish va yaratish uchun mo';jallangan dasturlar to'plami.
+2. IDE (Integrated Development Environment) - dasturlash tili uchun mo'ljallangan va dasturlashni osonlashtirib beradigan maxsus dastur.
+
+4-dars:
+1. Element - ochuvchi tag, content va yopuvchi tagdan tashkil topgan struktura.
+2. Empty element - faqatgina ochuvchi tagdan tashkil topgan element.
+3. Nested element - boshqa elementni ichida joylashgan element.
+4. Attribute - element haqida qo'shimcha ma'lumot beruvchi maxsus so'zlar.
+
+5-h1-h6:
+1. Headings - web sahifada sarlavha ko'rsatish uchun mo'ljallangan maxsus taglar, h1 ... h6 gacha.
+
+6-p:
+1. Paragraph - web sahifada matn chiqarish uchun mo'ljallangan maxsus teg. Paragraphlar har doim xat boshidan (abzats) boshlanadi.
+
+7-Styles:
+1. opacity - 0 da 0% 1 da 100% ko'rinadi.
+2. property - xossa, xususiyat.
+3. value - qiymat.
+4. color - matnga rang beradi.
+5. text-align - matnni malum bir tomonga tekislaydi.
+6. font-weight - matn qalinligi.
+
+8-Formatting:
+1. b - bold - matnni qalin qiladigan teg
+2. i - italic - kursiv - qalin teg
+3. sub - pastga yozish uchun, misol H2O suvni formulasi, subscript
+4. sup - tepaga yozish uchun, misol 2 ni kvadrati, supscript
+
+9-Comments-izohlar:
+HTML da izohlar <!-- ni ichiga yoziladi.
+
+10-Styles I:
+1. Inline styles - har bir tegni o'ziga alohida beriluvchi satrli stillar.
+2. Internal styles - har bir selector - tanlovchi elementga beriluvchi ichki stillar.
+3. External styles - tashqi css faylda saqlanadigan barcha tashqi stillar.
+
+11-Styles II:
+1. External styles - tashqi css faylda joylashadigan stillar, tavsiya qilinadigani shu usul.
+2. <link rel="stylesheet" href="stillar.css"> orqali tashqi css fayl qo'shiladi.
+
+12-Links:
+1. Links - havolalar bir sahifadan boshqa sahifaga o'tish uchun ishlatiladi.
+2. Absolute path - absolyut yo'l - tashqi hujjat uchun to'liq yo'l bunday yoziladi: 
+    <a href="http(s)://google.ru">Sahifaga o'tish</a> 
+3. Relative path - ichki xotirada joylashishiga nisbatan yo'l ko'rsatiladi, misol: 
+    <a href="stil.html">Sahifaga o'tish</a>
+4. Target attributi (xususiyati) o'tilayotgan sahifa qaysi oynada ochilishini belgilaydi.
+5. target="_blank" da keyingi oynada ochiladi.
+
+13-Tables - jadvallar:
+1. table - jadval tuzish uchun ishlatiladigan tag.
+2. thead - table head - jadval bosh qismi.
+3. tr - table row - jadval qatori.
+4. th - table head data - jadval boshi ma'lumoti.
+5. tbody - table body - jadval tana qismi.
+6. tr - table row - jadval qatori (tana uchun ham)
+7. td - table data - jadval ma'lumoti.
+
+14-Lists - ro'yhatlar:
+1. <ol> - ordered list - tartiblangan ro'yhat.
+2. <ul> - unordered list - tartiblanmagan ro'yhat.
+3. <li> - list item - ro'yhat elementi va u ol va ul ni ichida bo'ladi.
+
+15-id:
+1. id attributi har bir elementni unikal holda tanlab olishga xizmat qiladi.
+2. head da id nomidan oldin # belgisi bo'ladi.
+3. 1 elementda faqat 1 id bo'ladi.
+
+16-class:
+1. class orqali bir nechta elementlarni tanlab olsa bo'ladi.
+2. head da class nomidan oldin . (nuqta) bo'ladi.
+3. 1 elementda bir nechta class bo'lishi mumkin.
+
+17-inline va block elementlar:
+1. block element - o'ziga tegishli butun bir qator(satr)ni oladi.
+2. inline element - faqat o'zi sig'adigan joyni band etadi.
+3. block element ichida inline element joylashishi mumkin lekin aksincha emas.
+
+18-div-span:
+1. div block elementlarni jamlovchi konteyner.
+2. span inline elementlarni jamlovchi konteyner.
+
+19-formalar:
+1. formalar - foydalanuvchidan ma'lumotlarni qabul qilib olish uchun ishlatiladi.
+2. <form> Content </form> - shu 2 teg orasiga yoziladi.
+3. method - ma;lumotni yuborish uslubi.
+4. get methodi - xavfli metod, ishlatish tavsiya qilinmaydi, 
+kiritilgan ma'lumotlar brauzerdagi adres kiritish joyida ko'rinib turadi.
+5. post methodi - tavsiya qilinadigan ma'lumotlarni yashirib yuboradigan forma metodi.
+
+20-formalar2:
+1. radio input type si bir nechta varinatlardan birini tugma kabi belgilaydi, name atributlari hamma id va type larda bir xil !
+2. checkbox - "ptichka" - qushcha, bor-yo'qlikni ifodalaydi.
+3. date - sana kiritish uchun.
+4. datetime-local - sana va vaqt.
+5. email - elektron pochta uchun.
+6. password - password, parol uchun.
+7. file - fayl yuklash uchun.
+
+21-formalar3:
+1. select - ro'yhat ichidan birisini tanlash uchun.
+2. select ichida option bo'ladi.
+3. option - varinatlardan biri (masalan viloyat tanlaganda).
+
+
+22-semantics:
+Sematnika - ma'no, ma'noviy guruhlash uchun ishlatiladi.
+1. heading - hujjatning bosh qismi.
+2. nav - menyu, navigatsiya qismi.
+3. section - hujjatning asosiy content qismi.
+4. aside - section ni yon tarafida turadigan yordamchi qismi.
+5. footer - hujjatning eng pastki qismi.
+Semantics qidiruv tizimlari va boshqa tildagi dasturchilar uchun sahifani tushunishda yordam beradi.
+
+23-head:
+1. head (bosh) qismi sahifani ko'rinmaydigan lekin ishchi hususiyatlarni o'zida saqlovchi qism.
+2. title - sahifa nomi.
+3. style - Internal style berish uchun ishlatiladi.
+4. link - sahifaga aloqador boshqa sahifa, css va boshqa fayllar kiritiladi.
+5. meta - sahifaga qidiruv tizimlari uchun umumiy sahifa haqidagi semantik ma'lumotlar saqlanadi.
+6. meta keywords - kalit so'zlar.
+7. meta author - muallif.
+8. meta description - sahifa nima haqidaligi.
+9. meta charset - sahifa kodirovkasi.
+9. script - JavaScript kodlari yoziladi.
+10. link favicon - sahifa ikonkasi.
+
+24-audio, video va youtube:
+1. <audio> - ovoz joylash tegi.
+2. <video> - video joylash tegi.
+3. audio video ga controls attributi kerak.
+4. videoni eni bo'yini kiritish kerak.
+5. audio videoni source src orqali manzili kiritiladi.
+6. youtube video joylash uchun Embed(YouTube ulashishdagi) Встромть <> tanlanib nusxa olib sahifaga joylanadi.
+
+

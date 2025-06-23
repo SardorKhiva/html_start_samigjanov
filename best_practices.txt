@@ -1,0 +1,15 @@
+#1 Kod yozish bo'yicha qoidalar:
+    Hamma teglarni kichik harflarda yozing;
+    "Indentation" - oraliq, отступ dan to'g'ri foydalaning;
+
+#2 Inline style lar ishlatmang
+
+
+
+#3 Rasm uchun alt atributini ko'rsatib o'ting
+
+#4 Har bir sahifada bittadan ko'p bo'lmagan h1 tegini ishlating
+
+#5 <title> va <meta> teglaridan to'g'ri foydalaning
+
+#6 HTML validatorlaridan foydalaning

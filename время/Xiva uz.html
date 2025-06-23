@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Namoz Vaqtlari - Xiva</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/adhan@latest/dist/adhan.min.js"></script>
+    <style>
+        body {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #clock {
+            font-size: 60px;
+            color: green;
+            margin: 20px;
+        }
+        
+        table {
+            margin: 20px auto;
+            border: 2px solid green;
+            padding: 20px;
+            font-size: 24px;
+        }
+        
+        td {
+            padding: 10px 20px;
+        }
+        
+        .current {
+            background: green;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">00:00:00</div>
+    
+    <table id="prayerTable">
+        <tr>
+            <td>Bomdod</td>
+            <td id="fajr">--:--</td>
+        </tr>
+        <tr>
+            <td>Quyosh</td>
+            <td id="sunrise">--:--</td>
+        </tr>
+        <tr>
+            <td>Peshin</td>
+            <td id="dhuhr">--:--</td>
+        </tr>
+        <tr>
+            <td>Asr</td>
+            <td id="asr">--:--</td>
+        </tr>
+        <tr>
+            <td>Shom</td>
+            <td id="maghrib">--:--</td>
+        </tr>
+        <tr>
+            <td>Xufton</td>
+            <td id="isha">--:--</td>
+        </tr>
+    </table>
+
+    <script>
+        // Координаты Хивы
+        const coordinates = new Adhan.Coordinates(41.3775, 60.3639);
+
+        function updatePrayerTimes() {
+            const date = new Date();
+            const params = Adhan.CalculationMethod.MuslimWorldLeague();
+            params.madhab = Adhan.Madhab.Hanafi;
+            
+            const prayerTimes = new Adhan.PrayerTimes(coordinates, date, params);
+            
+            // Обновляем времена
+            document.getElementById('fajr').textContent = 
+                prayerTimes.fajr.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                
+            document.getElementById('sunrise').textContent = 
+                prayerTimes.sunrise.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                
+            document.getElementById('dhuhr').textContent = 
+                prayerTimes.dhuhr.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                
+            document.getElementById('asr').textContent = 
+                prayerTimes.asr.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                
+            document.getElementById('maghrib').textContent = 
+                prayerTimes.maghrib.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                
+            document.getElementById('isha').textContent = 
+                prayerTimes.isha.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+
+            // Подсвечиваем текущий намаз
+            highlightCurrentPrayer(prayerTimes);
+        }
+
+        function highlightCurrentPrayer(prayerTimes) {
+            const now = new Date();
+            const current = prayerTimes.currentPrayer(now);
+            
+            // Убираем предыдущую подсветку
+            document.querySelectorAll('tr').forEach(row => {
+                row.classList.remove('current');
+            });
+            
+            // Подсвечиваем текущий намаз
+            if (current) {
+                const prayerMap = {
+                    fajr: 'fajr',
+                    sunrise: 'sunrise',
+                    dhuhr: 'dhuhr',
+                    asr: 'asr',
+                    maghrib: 'maghrib',
+                    isha: 'isha'
+                };
+                
+                const element = document.getElementById(prayerMap[current]);
+                if (element) {
+                    element.parentElement.classList.add('current');
+                }
+            }
+        }
+
+        function updateClock() {
+            var now = new Date();
+            var time = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = time;
+        }
+        
+        // Обновляем время каждую секунду
+        setInterval(updateClock, 1000);
+        
+        // Обновляем времена намаза каждую минуту
+        setInterval(updatePrayerTimes, 60000);
+        
+        // Инициализация
+        updateClock();
+        updatePrayerTimes();
+    </script>
+</body>
+</html>

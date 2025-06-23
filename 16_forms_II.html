@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formalar - II</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        body {
+            background-color: green;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Ro'yhatdan o'tish</h2>
+    <form action="php/form_2.php" method="post">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="username">
+                            Ism:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="username" name="username">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="password">
+                            Parol:
+                        </label>
+                    </td>
+                    <td>
+
+                        <input type="password" id="password" name="password">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="email">
+                            Email:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="email" id="email" name="email">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="date">
+                            Tug'ilgan sana:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="date" name="date" id="date">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="datetime-local">Tug'ilgan sana va vaqti:</label>
+                    </td>
+                    <td>
+                        <input type="datetime-local" name="datetime-local" id="datetime-local">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="talaba">Talaba</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="talaba" id="talaba">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="erkak">Jinsi:</label></td>
+                    <td>
+                        <label for="erkak">Erkak</label>
+                        <input type="radio" name="gender" id="erkak">
+
+                        <label for="ayol">Ayol</label>
+                        <input type="radio" name="gender" id="ayol">
+                    </td>
+                </tr>
+
+                <!-- Saqlash tugamsini o'rta -->
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Saqlash">
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+
+</body>
+
+</html>
